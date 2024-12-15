@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .hidden {
+        display: none;
+      }
+      .users-list {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .user-item {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+      }
+      .user-item:hover {
+        background-color: #f0f0f0;
+      }
+      .messages {
+        border: 1px solid #ccc;
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+        display: none; /* Initially hidden */
+      }
+      .input-row {
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 10px;
+      }
+      .chat-with {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      .message {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+        max-width: 70%;
+        display: inline-block;
+        clear: both;
+      }
+      .message.right {
+        background-color: #d1e7dd;
+        align-self: flex-end;
+        text-align: right;
+        float: right;
+      }
+      .message.left {
+        background-color: #f8d7da;
+        align-self: flex-start;
+        text-align: left;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="loginContainer">
+      <h1>Login</h1>
+      <div class="input-row">
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="input-row">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+        />
+      </div>
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div class="container hidden" id="chatContainer">
+      <h1 id="chatHeader">Simple Chat</h1>
+      <div class="users-list" id="usersList"></div>
+      <div class="chat-with" id="chatWith"></div>
+      <div class="messages" id="messagesContainer"></div>
+      <div class="input-row">
+        <input type="text" id="messageInput" placeholder="Type your message" />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+    <script src="./utils/frontUtils.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
